@@ -19,7 +19,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
                 <span class="text-xl font-bold text-white">FB</span>
               </div>
               <h1 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-                FILOU BOMBONNES
+                VAPOR DISTRIBUTION
               </h1>
             </a>
           </div>

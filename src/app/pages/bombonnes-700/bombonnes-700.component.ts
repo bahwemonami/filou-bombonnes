@@ -1,64 +1,18 @@
-import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TelegramService } from '../../services/telegram.service';
-import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-products',
+  selector: 'app-bombonnes-700',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   template: `
     <div class="container mx-auto px-4 py-8 max-w-7xl">
       <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Nos Produits</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Product Card 1 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
-          <div class="relative">
-            <img src="/assets/miami.jpg" alt="Palette Miami" class="w-full h-64 object-cover">
-            <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-              Premium
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Bombonnes 700g</h3>
-            <p class="text-gray-600 mb-4">Notre sélection de bombonnes premium</p>
-            <button>
-              <a routerLink="/bombonnes-700" 
-                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
-              </svg>
-              Voir les articles
-            </a>
-            </button>
-          </div>
-        </div>
-
-        <!-- Product Card 2 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
-          <div class="relative">
-            <img src="/assets/miami.jpg" alt="Carton Miami" class="w-full h-64 object-cover">
-            <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-              Populaire
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">BB Tanks</h3>
-            <p class="text-gray-600 mb-4">Notre séléction de BB Tanks</p>
-            <button>
-              <a routerLink="/bb-tanks" 
-                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
-              </svg>
-              Voir les articles
-            </a>
-            </button>
-          </div>
-        </div>
-        <!-- Product Card 3 -->
+        
         <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
           <div class="relative">
             <img src="/assets/miami.jpg" alt="Tank Miami" class="w-full h-64 object-cover">
@@ -67,19 +21,158 @@ import { RouterModule } from '@angular/router';
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">ULTRA Tanks 3kg</h3>
-            <p class="text-gray-600 mb-4">Notre séléction d'ULTRA Tanks</p>
-            <button>
-              <a routerLink="/ultra-tanks" 
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Baking Bad 640g Aluminium</h3>
+            <p class="text-gray-600 mb-4">Les baking bad infusion apportent une touche d’humour à votre cuisine avec un design amusant et des normes de sécurité strictes. Non rechargeable, non médical, et non destiné à l’inhalation.</p>
+            <button (click)="openOrderForm('Tank Miami')" 
                     class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
               </svg>
-              Voir les articles
-            </a>
+              Commander
             </button>
           </div>
         </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+          <div class="relative">
+            <img src="/assets/miami.jpg" alt="Tank Miami" class="w-full h-64 object-cover">
+            <div class="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              Nouveau
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Baking Bad 615g Métal</h3>
+            <p class="text-gray-600 mb-4">Les baking bad infusion apportent une touche d’humour à votre cuisine avec un design amusant et des normes de sécurité strictes. Non rechargeable, non médical, et non destiné à l’inhalation.
+            <button (click)="openOrderForm('Tank Miami')" 
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+              </svg>
+              Commander
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+          <div class="relative">
+            <img src="/assets/miami.jpg" alt="Tank Miami" class="w-full h-64 object-cover">
+            <div class="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              Nouveau
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Miami Magic 640g Aluminium</h3>
+            <p class="text-gray-600 mb-4">Les Miami Magic infusion apportent une touche d’humour à votre cuisine avec un design amusant et des normes de sécurité strictes. Non rechargeable, non médical, et non destiné à l’inhalation.</p>
+            <button (click)="openOrderForm('Tank Miami')" 
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+              </svg>
+              Commander
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+          <div class="relative">
+            <img src="/assets/miami.jpg" alt="Tank Miami" class="w-full h-64 object-cover">
+            <div class="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              Nouveau
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Miami Magic 700g Métal</h3>
+            <p class="text-gray-600 mb-4">Les Miami Magic infusion apportent une touche d’humour à votre cuisine avec un design amusant et des normes de sécurité strictes. Non rechargeable, non médical, et non destiné à l’inhalation.</p>
+            <button (click)="openOrderForm('Tank Miami')" 
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+              </svg>
+              Commander
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+          <div class="relative">
+            <img src="/assets/miami.jpg" alt="Tank Miami" class="w-full h-64 object-cover">
+            <div class="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              Nouveau
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Miami Magic 320g</h3>
+            <p class="text-gray-600 mb-4">Les Miami Magic infusion apportent une touche d’humour à votre cuisine avec un design amusant et des normes de sécurité strictes. Non rechargeable, non médical, et non destiné à l’inhalation.</p>
+            <button (click)="openOrderForm('Tank Miami')" 
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+              </svg>
+              Commander
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+          <div class="relative">
+            <img src="/assets/miami.jpg" alt="Tank Miami" class="w-full h-64 object-cover">
+            <div class="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              Nouveau
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">FreshWip</h3>
+            <p class="text-gray-600 mb-4">Les FreshWip apportent une touche d’humour à votre cuisine avec un design amusant et des normes de sécurité strictes. Non rechargeable, non médical, et non destiné à l’inhalation.</p>
+            <button (click)="openOrderForm('Tank Miami')" 
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+              </svg>
+              Commander
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+          <div class="relative">
+            <img src="/assets/miami.jpg" alt="Tank Miami" class="w-full h-64 object-cover">
+            <div class="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              Nouveau
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">FreshWip Menthe</h3>
+            <p class="text-gray-600 mb-4">Les FreshWip Menthe apportent une touche d’humour à votre cuisine avec un design amusant et des normes de sécurité strictes. Non rechargeable, non médical, et non destiné à l’inhalation.</p>
+            <button (click)="openOrderForm('Tank Miami')" 
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+              </svg>
+              Commander
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+          <div class="relative">
+            <img src="/assets/miami.jpg" alt="Tank Miami" class="w-full h-64 object-cover">
+            <div class="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              Nouveau
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">FreshWip Fraise</h3>
+            <p class="text-gray-600 mb-4">Les FreshWip Fraise infusion apportent une touche d’humour à votre cuisine avec un design amusant et des normes de sécurité strictes. Non rechargeable, non médical, et non destiné à l’inhalation.</p>
+            <button (click)="openOrderForm('Tank Miami')" 
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+              </svg>
+              Commander
+            </button>
+          </div>
+        </div>
+
       </div>
 
       <!-- Order Modal -->
@@ -196,63 +289,9 @@ import { RouterModule } from '@angular/router';
   </div>
 </div>
   `,
-  styles: [`
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .product-card {
-      background: white;
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      text-align: center;
-      img {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        border-radius: 4px;
-      }
-    }
-    .order-button {
-      background: #1a1a1a;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      &:hover {
-        background: #333;
-      }
-    }
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 50;
-    }
-    .modal-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      max-width: 500px;
-      width: 90%;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-    .form-group {
-      margin-bottom: 1rem;
-    }
-  `]
+  styles: ''
 })
-export class ProductsComponent {
+export class Bombonnes700Component {
   orderForm: FormGroup;
   showOrderForm = false;
   showConfirmation = false;

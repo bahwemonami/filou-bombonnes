@@ -16,7 +16,7 @@ import { RouterLink } from '@angular/router';
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-48">
         <div class="animate-fade-in-up">
           <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 tracking-tight">
-            Bienvenue chez <span class="bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">FILOU BOMBONNES</span>
+            Bienvenue chez <span class="bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">VAPOR DISTRIBUTION</span>
           </h1>
           <p class="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
             Découvrez notre gamme exclusive de produits premium, livrés directement chez vous avec un service d'exception
